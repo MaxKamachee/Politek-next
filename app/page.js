@@ -1,11 +1,9 @@
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeatureSection from './components/FeatureSection';
-import HowItWorksSection from './components/HowItWorksSection';
+import AppExampleSection from './components/AppExampleSection';
 import TestimonialSection from './components/TestimonialSection';
-import DemoSection from './components/DemoSection';
-import PricingSection from './components/PricingSection';
-import CTASection from './components/CTASection';
-import Navbar from './components/Navbar';
+import SignupCTASection from './components/CTASection';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -14,11 +12,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeatureSection />
-      <HowItWorksSection />
-      <DemoSection />
+      <AppExampleSection />
       <TestimonialSection />
-      <PricingSection />
-      <CTASection />
+      <SignupCTASection />
       <Footer />
     </main>
   );

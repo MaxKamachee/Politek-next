@@ -48,6 +48,7 @@ const Navbar = () => {
             </span>
             <div className="flex items-baseline">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500 font-extrabold">Politek</span>
+              <span className="text-xs text-blue-400 ml-1 font-medium rounded-full px-1.5 py-0.5 border border-blue-500/30 bg-blue-500/10">BETA</span>
             </div>
           </Link>
 
@@ -59,12 +60,18 @@ const Navbar = () => {
               ))}
             </div>
             <div className="flex items-center space-x-3">
-              <button className="text-slate-300 hover:text-white transition-colors px-3 py-1.5">
-                Sign in
-              </button>
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-md transition-all shadow-md hover:shadow-lg hover:shadow-blue-900/20">
-                Get Started
-              </button>
+              <a 
+                href="#login" 
+                className="text-slate-300 hover:text-white transition-colors px-3 py-1.5"
+              >
+                Log In
+              </a>
+              <a 
+                href="#signup" 
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-md transition-all shadow-md hover:shadow-lg hover:shadow-blue-900/20"
+              >
+                Sign Up Free
+              </a>
             </div>
           </div>
 
@@ -105,12 +112,20 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex flex-col space-y-3 pt-4 pb-2 mt-2 border-t border-slate-700/50">
-            <button className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-left">
-              Sign in
-            </button>
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2.5 rounded-md transition-colors shadow-md mx-4">
-              Get Started
-            </button>
+            <a 
+              href="#login" 
+              className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Log In
+            </a>
+            <a 
+              href="#signup" 
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2.5 rounded-md transition-colors shadow-md mx-4 text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Sign Up Free
+            </a>
           </div>
         </div>
       </div>
@@ -120,8 +135,8 @@ const Navbar = () => {
 
 const navLinks = [
   { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#demo", label: "Demo" },
+  { href: "#demo", label: "How It Works" },
+  { href: "#testimonials", label: "Testimonials" },
   { href: "#pricing", label: "Pricing" },
 ];
 

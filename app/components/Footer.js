@@ -33,7 +33,6 @@ const Footer = () => {
               </span>
               <div className="flex items-baseline">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500 font-extrabold">Politek</span>
-                <span className="text-xs text-blue-400 ml-1 font-medium rounded-full px-1.5 py-0.5 border border-blue-500/30 bg-blue-500/10">BETA</span>
               </div>
             </Link>
             <p className="text-slate-400 mb-6 pr-4">

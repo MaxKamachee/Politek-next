@@ -1,11 +1,39 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ArrowRight, ChevronRight, CheckCircle, Smartphone } from 'lucide-react';
 
-const CTASection = () => {
+const SignupCTASection = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Store email in localStorage for use on the profile page
+    localStorage.setItem('userEmail', email);
+    
+    // Simulate a short delay for UX purposes
+    setTimeout(() => {
+      setIsLoading(false);
+      // Redirect to profile completion page
+      router.push('/profile');
+    }, 500);
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-900 relative overflow-hidden">
+    <section id="signup" className="py-20 bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-900 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 -left-64 w-96 h-96 bg-indigo-900 opacity-30 blur-3xl rounded-full"></div>
@@ -24,28 +52,128 @@ const CTASection = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-            Make politics <span className="text-blue-400">visual</span>, <span className="text-indigo-400">personal</span>, and <span className="text-cyan-400">understandable</span>
+            Get political clarity <span className="text-blue-400">instantly</span> on any device
           </h2>
           
-          <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
-            Politics impacts every aspect of your life. Shouldn't you be able to see exactly how? Join thousands making better political decisions with Politek.
+          <p className="text-xl text-slate-300 mb-6 max-w-3xl mx-auto">
+            Create your free account to access personalized policy impact assessments and visualizations. See exactly how politics affects your life.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="#signup" className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-lg font-semibold shadow-lg shadow-blue-900/30 transition-all hover:shadow-xl">
-              Get Started Free
-            </a>
-            <a href="#demo" className="bg-transparent hover:bg-white/10 text-white border border-white/30 px-8 py-4 rounded-lg font-semibold transition-all">
-              Watch Demo
-            </a>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <div className="flex items-center">
+              <CheckCircle className="text-green-400 h-5 w-5 mr-2" />
+              <span className="text-white">2 policy views/week</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="text-green-400 h-5 w-5 mr-2" />
+              <span className="text-white">Weekly resets</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="text-green-400 h-5 w-5 mr-2" />
+              <span className="text-white">No credit card</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="text-green-400 h-5 w-5 mr-2" />
+              <span className="text-white">Mobile & desktop</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Signup Form Section with device mockups */}
+        <div className="grid md:grid-cols-5 gap-8 max-w-5xl mx-auto">
+          <div className="md:col-span-3 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-xl p-8">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-white mb-2">Create your free account</h3>
+              <p className="text-slate-300">Start getting personalized policy insights today</p>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="signup-email" className="block text-sm font-medium text-slate-300 mb-1">Email address</label>
+                <input 
+                  type="email" 
+                  id="signup-email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com" 
+                  className="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+                {error && <p className="mt-2 text-red-400 text-sm">{error}</p>}
+              </div>
+              
+              <button 
+                type="submit" 
+                disabled={isLoading}
+                className="w-full mt-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:shadow-lg hover:from-blue-500 hover:to-indigo-500 transition-all flex items-center justify-center group"
+              >
+                <span>{isLoading ? 'Processing...' : 'Continue to Complete Your Profile'}</span>
+                <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <p className="text-xs text-slate-400 text-center mt-4">
+                By signing up, you agree to our <a href="#" className="text-blue-400 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-400 hover:underline">Privacy Policy</a>
+              </p>
+            </form>
           </div>
           
-          {/* Trust indicators */}
-          <div className="pt-8 border-t border-white/10">
-            <p className="text-slate-400 mb-4">Trusted by individuals across the political spectrum</p>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
+          <div className="md:col-span-2 flex flex-col justify-center items-center">
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl h-96 w-48 p-1 shadow-xl rotate-1 transform">
+                <div className="bg-slate-900 rounded-3xl h-full w-full overflow-hidden">
+                  {/* This would be the mobile app screenshot */}
+                  <div className="h-full w-full bg-slate-800 flex flex-col">
+                    <div className="bg-slate-900 px-4 py-2 flex items-center justify-between">
+                      <div className="text-white text-xs font-bold">Politek</div>
+                      <div className="flex space-x-1">
+                        <div className="h-2 w-2 rounded-full bg-blue-400"></div>
+                        <div className="h-2 w-2 rounded-full bg-indigo-400"></div>
+                      </div>
+                    </div>
+                    <div className="p-2 flex-1 flex flex-col">
+                      <div className="bg-slate-700 rounded-lg p-2 mb-2">
+                        <div className="text-xs text-white font-semibold">Dashboard</div>
+                        <div className="h-1 w-1/3 bg-blue-400 rounded-full mt-1"></div>
+                      </div>
+                      
+                      <div className="bg-slate-900/60 rounded-lg p-2 mb-2">
+                        <div className="text-xs text-slate-300">Healthcare Policy</div>
+                        <div className="h-1 w-1/4 bg-slate-600 rounded-full mt-1"></div>
+                      </div>
+                      
+                      <div className="bg-slate-900/60 rounded-lg p-2 mb-2">
+                        <div className="text-xs text-slate-300">Tax Policy</div>
+                        <div className="h-1 w-1/4 bg-slate-600 rounded-full mt-1"></div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-2 mt-auto">
+                        <div className="text-xs text-white font-semibold">Your Impact</div>
+                        <div className="h-1 w-1/2 bg-indigo-400 rounded-full mt-1"></div>
+                        <div className="mt-2 flex">
+                          <div className="h-2 w-8 bg-green-500 rounded-full"></div>
+                          <div className="h-2 w-5 bg-blue-500 rounded-full ml-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-400/20 h-2 w-20 rounded-full blur-md"></div>
+            </div>
+            <div className="text-sm text-slate-400 mt-6 text-center">
+              <Smartphone className="h-5 w-5 text-blue-400 mx-auto mb-2" />
+              Available on all devices
+            </div>
+          </div>
+        </div>
+        
+        {/* Trust indicators */}
+        <div className="max-w-2xl mx-auto mt-12 text-center">
+          <div className="pt-4">
+            <p className="text-slate-400 mb-2">Trusted by people across the political spectrum</p>
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -68,41 +196,14 @@ const CTASection = () => {
                 <span className="text-blue-400 font-bold">50K+</span> Active Users
               </div>
               <div className="text-white font-medium">
-                <span className="text-green-400 font-bold">24/7</span> Support
+                <span className="text-green-400 font-bold">100%</span> Satisfaction
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Newsletter or early access signup */}
-        <div className="max-w-3xl mx-auto mt-16 p-8 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-xl">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-white mb-2">Get early access</h3>
-            <p className="text-slate-300">Be the first to experience our powerful visual political insights.</p>
-          </div>
-          
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              required
-            />
-            <button 
-              type="submit" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:shadow-lg hover:from-blue-500 hover:to-indigo-500 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800"
-            >
-              Join Waitlist
-            </button>
-          </form>
-          
-          <p className="text-xs text-slate-400 text-center mt-4">
-            By signing up, you agree to our <a href="#" className="text-blue-400 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-400 hover:underline">Privacy Policy</a>
-          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default CTASection;
+export default SignupCTASection;

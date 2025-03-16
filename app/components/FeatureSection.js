@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const FeatureSection = () => {
@@ -51,10 +50,10 @@ const FeatureSection = () => {
           variants={fadeInUpVariants}
           className="text-center mb-16"
         >
-          <span className="bg-slate-800 text-blue-400 px-4 py-1 rounded-md text-sm font-medium inline-block mb-4 shadow-lg shadow-blue-900/20">FEATURES</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Political information reimagined</h2>
+          <span className="bg-slate-800 text-blue-400 px-4 py-1 rounded-md text-sm font-medium inline-block mb-4 shadow-lg shadow-blue-900/20">HOW IT WORKS</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Politics explained, personalized</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Cut through the noise and see exactly how politics affects your daily life with visual-first insights.
+            See how politics affects you specifically, with interactive visualizations in our intuitive dashboard.
           </p>
         </motion.div>
 
@@ -64,7 +63,7 @@ const FeatureSection = () => {
           variants={staggerChildrenVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20"
         >
-          {/* Feature 1: Visual Impact Metrics */}
+          {/* Feature 1: Dashboard */}
           <motion.div 
             variants={fadeInUpVariants}
             className="bg-slate-800 rounded-xl p-6 border border-blue-500 shadow-lg shadow-blue-900/20 hover:transform hover:-translate-y-1 transition-all duration-300"
@@ -74,34 +73,30 @@ const FeatureSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-white">Visual Impact Metrics</h3>
-            <p className="text-slate-300 mb-4">See the real-world impact of policies with clear visualizations of dollars saved, time gained, and more.</p>
+            <h3 className="text-xl font-bold mb-3 text-white">Interactive Dashboard</h3>
+            <p className="text-slate-300 mb-4">Access your personal policy dashboard from any device to see how politics directly affects your situation.</p>
             
-            {/* Data visualization example */}
+            {/* Example box */}
             <div className="mt-6 p-4 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden">
-              <h4 className="text-sm font-medium text-slate-400 mb-2">Example: Tax Policy Impact</h4>
-              <div className="flex items-end space-x-3 mb-3 h-24">
-                <div className="relative group">
-                  <div className="bg-blue-500 h-16 w-8 rounded-t-sm" title="Current"></div>
-                  <div className="absolute -bottom-6 left-0 text-xs text-slate-500 transform -translate-x-1/4">Current</div>
-                </div>
-                <div className="relative group">
-                  <div className="bg-blue-600 h-10 w-8 rounded-t-sm" title="Proposed"></div>
-                  <div className="absolute -bottom-6 left-0 text-xs text-slate-500 transform -translate-x-1/4">Proposed</div>
-                </div>
-                <div className="relative group">
-                  <div className="bg-green-500 h-24 w-8 rounded-t-sm" title="Savings"></div>
-                  <div className="absolute -bottom-6 left-0 text-xs text-slate-500 transform -translate-x-1/4">Savings</div>
-                </div>
-              </div>
-              <div className="mt-6 flex justify-between items-center">
-                <span className="text-sm text-slate-400">Your savings:</span>
-                <span className="text-lg font-bold text-green-500">$1,240/yr</span>
-              </div>
+              <h4 className="text-sm font-medium text-slate-400 mb-3">Free Access</h4>
+              <ul className="text-sm text-slate-300 space-y-2">
+                <li className="flex items-center">
+                  <svg className="h-4 w-4 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  2 detailed policy views per week
+                </li>
+                <li className="flex items-center">
+                  <svg className="h-4 w-4 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Weekly resets for fresh insights
+                </li>
+              </ul>
             </div>
           </motion.div>
           
-          {/* Feature 2: Personalized */}
+          {/* Feature 2: Personalized Impact */}
           <motion.div 
             variants={fadeInUpVariants}
             className="bg-slate-800 rounded-xl p-6 border border-indigo-500 shadow-lg shadow-indigo-900/20 hover:transform hover:-translate-y-1 transition-all duration-300"
@@ -111,76 +106,93 @@ const FeatureSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-white">Personalized Insights</h3>
-            <p className="text-slate-300 mb-4">Receive tailored analysis based on your location, occupation, family status, and interests.</p>
+            <h3 className="text-xl font-bold mb-3 text-white">Personalized Impact</h3>
+            <p className="text-slate-300 mb-4">Each policy is analyzed based on your profile to show specifically how it affects your finances, career, and community.</p>
             
-            {/* Personalization example */}
+            {/* Example box */}
             <div className="mt-6 p-4 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden">
-              <h4 className="text-sm font-medium text-slate-400 mb-3">Your profile impacts:</h4>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm flex items-center"><span className="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span> Teacher</span>
-                  <span className="text-sm text-indigo-400">+$420 supplies budget</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm flex items-center"><span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span> Parent</span>
-                  <span className="text-sm text-blue-400">+$300 child tax credit</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm flex items-center"><span className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span> Homeowner</span>
-                  <span className="text-sm text-emerald-400">+$520 energy credit</span>
-                </div>
-              </div>
+              <h4 className="text-sm font-medium text-slate-400 mb-3">Sample Impact</h4>
+              <p className="text-sm text-slate-300"><span className="text-indigo-400 font-medium">Based on your profile:</span> As a homeowner in Arizona considering solar, this tax credit would reduce your installation costs by approximately $9,000.</p>
             </div>
           </motion.div>
           
-          {/* Feature 3: Fast */}
+          {/* Feature 3: Mobile & Desktop */}
           <motion.div 
             variants={fadeInUpVariants}
             className="bg-slate-800 rounded-xl p-6 border border-cyan-500 shadow-lg shadow-cyan-900/20 hover:transform hover:-translate-y-1 transition-all duration-300"
           >
             <div className="w-14 h-14 bg-cyan-900/30 rounded-lg mb-6 flex items-center justify-center text-cyan-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-white">Lightning Fast Understanding</h3>
-            <p className="text-slate-300 mb-4">Get the information you need in 30 seconds, not 30 minutes. No more trudging through dense reports.</p>
+            <h3 className="text-xl font-bold mb-3 text-white">Access Anywhere</h3>
+            <p className="text-slate-300 mb-4">Use Politek on any device - desktop, tablet, or mobile. Your personalized dashboard is always available where you need it.</p>
             
-            {/* Time-saving example */}
+            {/* Example box */}
             <div className="mt-6 p-4 bg-slate-900 rounded-lg border border-slate-700 overflow-hidden">
-              <h4 className="text-sm font-medium text-slate-400 mb-2">Healthcare Bill Breakdown</h4>
-              <div className="flex items-center mt-3">
-                <div className="h-3 rounded-full bg-slate-700 flex-grow overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 w-[30%]"></div>
+              <h4 className="text-sm font-medium text-slate-400 mb-3">Available On</h4>
+              <div className="flex justify-around">
+                <div className="flex flex-col items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs text-slate-400 mt-1">Desktop</span>
                 </div>
-                <span className="text-sm text-cyan-400 ml-3 whitespace-nowrap">30 sec</span>
-              </div>
-              <div className="text-xs text-slate-500 mt-1">vs. 30+ minutes reading full legislation</div>
-              <div className="mt-3 flex items-start space-x-2">
-                <svg className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-xs text-slate-300">Key provisions summarized in natural language</span>
+                <div className="flex flex-col items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs text-slate-400 mt-1">Mobile</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs text-slate-400 mt-1">Tablet</span>
+                </div>
               </div>
             </div>
           </motion.div>
         </motion.div>
-
-        {/* Additional CTA */}
-        <div className="text-center mt-8">
-          <motion.button 
-            initial="hidden"
-            animate={isVisible ? 'visible' : 'hidden'}
-            variants={fadeInUpVariants}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-3 rounded-md inline-flex items-center transition-all shadow-lg hover:shadow-blue-900/20 text-lg font-medium group"
-          >
-            Explore all features
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </motion.button>
-        </div>
+        
+        {/* Weekly Limits Feature Highlight */}
+        <motion.div
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+          variants={fadeInUpVariants}
+          className="max-w-3xl mx-auto bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-xl p-6 border border-blue-500/20 mt-8"
+        >
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/4 flex justify-center mb-6 md:mb-0">
+              <div className="w-24 h-24 rounded-full bg-blue-900/40 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <div className="md:w-3/4 md:pl-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Fresh Insights Every Week</h3>
+              <p className="text-slate-300 mb-4">
+                Our free tier gives you access to 2 detailed policy analyses per week. Your views reset weekly, so you always get fresh content to explore.
+              </p>
+              <div className="flex items-center">
+                <div className="flex items-center mr-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white">Weekly resets</span>
+                </div>
+                <div className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white">Upgrade anytime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
