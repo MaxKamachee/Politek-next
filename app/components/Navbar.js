@@ -2,10 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { User, LogOut } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
+  const { user, isAuthenticated, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,12 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <nav 
@@ -60,18 +70,69 @@ const Navbar = () => {
               ))}
             </div>
             <div className="flex items-center space-x-3">
-              <a 
-                href="#login" 
-                className="text-slate-300 hover:text-white transition-colors px-3 py-1.5"
-              >
-                Log In
-              </a>
-              <a 
-                href="#signup" 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-md transition-all shadow-md hover:shadow-lg hover:shadow-blue-900/20"
-              >
-                Sign Up Free
-              </a>
+              {isAuthenticated ? (
+                <div className="relative">
+                  <button 
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center space-x-1 text-slate-300 hover:text-white transition-colors px-3 py-1.5"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                      {user?.first_name ? user.first_name[0] : <User className="h-4 w-4" />}
+                    </div>
+                    <span className="hidden lg:inline">{user?.first_name || 'Account'}</span>
+                  </button>
+                  
+                  {/* User Dropdown */}
+                  {userMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-md shadow-lg overflow-hidden z-10">
+                      <div className="p-2 border-b border-slate-700">
+                        <p className="text-sm font-medium text-white">{user?.first_name} {user?.last_name}</p>
+                        <p className="text-xs text-slate-400 truncate">{user?.email}</p>
+                      </div>
+                      <div className="py-1">
+                        <Link 
+                          href="/dashboard" 
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700 hover:text-white"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          Dashboard
+                        </Link>
+                        <Link 
+                          href="/profile" 
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700 hover:text-white"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          Profile Settings
+                        </Link>
+                        <button 
+                          onClick={handleLogout}
+                          className="block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-slate-700 hover:text-red-300"
+                        >
+                          <div className="flex items-center">
+                            <LogOut className="h-4 w-4 mr-2" /> 
+                            Logout
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <>
+                  <Link 
+                    href="/login" 
+                    className="text-slate-300 hover:text-white transition-colors px-3 py-1.5"
+                  >
+                    Log In
+                  </Link>
+                  <Link 
+                    href="/register" 
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-md transition-all shadow-md hover:shadow-lg hover:shadow-blue-900/20"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
@@ -112,20 +173,59 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex flex-col space-y-3 pt-4 pb-2 mt-2 border-t border-slate-700/50">
-            <a 
-              href="#login" 
-              className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Log In
-            </a>
-            <a 
-              href="#signup" 
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2.5 rounded-md transition-colors shadow-md mx-4 text-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Sign Up Free
-            </a>
+            {isAuthenticated ? (
+              <>
+                <div className="px-4 py-2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mr-2">
+                      {user?.first_name ? user.first_name[0] : <User className="h-4 w-4" />}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-white">{user?.first_name} {user?.last_name}</p>
+                      <p className="text-xs text-slate-400 truncate">{user?.email}</p>
+                    </div>
+                  </div>
+                </div>
+                <Link 
+                  href="/dashboard" 
+                  className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-left"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+                <Link 
+                  href="/profile" 
+                  className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-left"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Profile Settings
+                </Link>
+                <button 
+                  onClick={handleLogout}
+                  className="text-red-400 hover:text-red-300 hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-left flex items-center"
+                >
+                  <LogOut className="h-4 w-4 mr-2" /> 
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link 
+                  href="/login" 
+                  className="text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors py-3 px-4 rounded-md text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Log In
+                </Link>
+                <Link 
+                  href="/register" 
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2.5 rounded-md transition-colors shadow-md mx-4 text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

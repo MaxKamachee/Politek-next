@@ -139,15 +139,15 @@ const AppExampleSection = () => {
                   />
                   
                   {/* Free tier limit indicator */}
-                                      <div className="bg-indigo-900/20 border border-indigo-500/20 rounded-lg p-3 mt-4">
+                  <div className="bg-indigo-900/20 border border-indigo-500/20 rounded-lg p-3 mt-4">
                     <div className="flex items-center text-sm text-indigo-300 mb-2">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Free Tier Limit Reached
+                      Free Tier Limit Note
                     </div>
-                    <p className="text-xs text-slate-300">You've used your 2 free policy views this week. Upgrade to premium for unlimited access.</p>
-                    <div className="mt-2 text-xs text-slate-400">Resets in 5 days</div>
+                    <p className="text-xs text-slate-300">You can view policy summaries for all policies, but personal impact analysis is limited to 2 per week on the free tier.</p>
+                    <div className="mt-2 text-xs text-slate-400">Your personal analysis count resets in 5 days</div>
                   </div>
                 </div>
               </div>
@@ -244,9 +244,9 @@ const AppExampleSection = () => {
         <div className="max-w-4xl mx-auto bg-slate-800 rounded-xl p-8 border border-slate-700 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">2 policy insights per week, free</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Summaries for all, personal impact for 2</h3>
               <p className="text-slate-300 mb-6">
-                Our free plan gives you access to 2 detailed policy insights each week, with automatic weekly resets. Upgrade to premium for unlimited access to all policies.
+                Our free plan gives you access to summaries for all policies, with 2 personalized impact analyses per week. Premium unlocks unlimited personal impact analyses.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
@@ -276,25 +276,25 @@ const AppExampleSection = () => {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-lg border border-blue-500/10 p-4 transform rotate-1">
-                    <div className="text-blue-400 text-sm font-medium mb-1">Week 1</div>
+                    <div className="text-blue-400 text-sm font-medium mb-1">This Week</div>
                     <div className="space-y-2">
                       <div className="bg-slate-900 rounded h-2 w-full"></div>
                       <div className="bg-slate-900 rounded h-2 w-3/4"></div>
                     </div>
                     <div className="flex justify-between mt-3">
                       <div className="text-xs text-slate-400">2 policies</div>
-                      <div className="text-xs text-green-400">Used</div>
+                      <div className="text-xs text-green-400">Available</div>
                     </div>
                   </div>
                   <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-lg border border-blue-500/10 p-4 transform -rotate-1">
-                    <div className="text-blue-400 text-sm font-medium mb-1">Week 2</div>
+                    <div className="text-blue-400 text-sm font-medium mb-1">Next Week</div>
                     <div className="space-y-2">
                       <div className="bg-slate-900 rounded h-2 w-full"></div>
                       <div className="bg-slate-900 rounded h-2 w-3/4"></div>
                     </div>
                     <div className="flex justify-between mt-3">
                       <div className="text-xs text-slate-400">2 policies</div>
-                      <div className="text-xs text-green-400">Fresh</div>
+                      <div className="text-xs text-green-400">Upcoming</div>
                     </div>
                   </div>
                 </div>

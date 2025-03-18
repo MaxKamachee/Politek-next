@@ -18,15 +18,17 @@ const PricingSection = () => {
         annual: 0
       },
       features: [
-        "Personal profile setup",
-        "5 visual policy impacts per month",
+        "Access to all policy summaries",
+        "2 personalized impact analyses per week",
+        "Weekly impact analysis resets",
         "Basic data visualization",
-        "Topic alerts (3 topics)",
-        "Email support"
+        "Email updates on major policies"
       ],
       limitations: [
-        "No historical data",
-        "Limited issue tracking"
+        "Limited personalized analyses",
+        "Limited policy archive access",
+        "No advanced visualization tools",
+        "No custom alerts"
       ],
       ctaText: "Get Started",
       ctaHighlighted: false,
@@ -40,14 +42,15 @@ const PricingSection = () => {
         annual: 7.99
       },
       features: [
-        "Everything in Free",
-        "Unlimited visual policy impacts",
+        "Access to all policy summaries",
+        "Unlimited personalized impact analyses",
+        "Full policy archive access",
         "Advanced data visualization",
-        "Custom issue tracking (unlimited)",
-        "Historical data (2 years)",
         "Custom policy alerts",
-        "Priority email support",
-        "Weekly insights newsletter"
+        "Priority support",
+        "Comparative policy analysis",
+        "Personal impact dashboard",
+        "Policy briefing downloads"
       ],
       limitations: [
         "Limited API access"
@@ -69,7 +72,7 @@ const PricingSection = () => {
         "API access",
         "Data exports",
         "Custom branding",
-        "Historical data (10+ years)",
+        "Historical policy library (10+ years)",
         "Dedicated account manager",
         "Training and onboarding",
         "Custom integrations"
@@ -93,7 +96,7 @@ const PricingSection = () => {
           <span className="bg-slate-800 text-blue-400 px-4 py-1 rounded-md text-sm font-medium inline-block mb-4">PRICING</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Choose the plan that works for you</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Get the political insights you need, at a price that makes sense for your situation.
+            From free weekly policy insights to unlimited premium access, we have a plan for every need.
           </p>
           
           {/* Pricing switch */}
@@ -113,6 +116,32 @@ const PricingSection = () => {
             
             <div className="ml-5 bg-indigo-900/30 text-indigo-400 text-xs font-medium px-3 py-1 rounded-full border border-indigo-500/20">
               Save 20% with annual billing
+            </div>
+          </div>
+        </div>
+        
+        {/* Weekly limit highlight */}
+        <div className="max-w-5xl mx-auto mb-12 bg-gradient-to-r from-blue-900/20 to-indigo-900/20 rounded-lg p-6 border border-blue-500/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">Access model that makes sense</h3>
+              <p className="text-slate-300">
+                Everyone gets access to all policy summaries. Free users can personalize 2 analyses per week to see specific impacts. Premium users get unlimited personal analyses.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                <h4 className="text-blue-400 font-medium mb-2">Free</h4>
+                <div className="text-white font-bold text-3xl mb-1">2</div>
+                <div className="text-slate-400 text-sm">Personal analyses weekly</div>
+                <div className="text-slate-400 text-sm mt-2 font-medium">All policy summaries</div>
+              </div>
+              <div className="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                <h4 className="text-indigo-400 font-medium mb-2">Premium</h4>
+                <div className="text-white font-bold text-3xl mb-1">∞</div>
+                <div className="text-slate-400 text-sm">Unlimited personalization</div>
+                <div className="text-slate-400 text-sm mt-2 font-medium">Advanced features</div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,23 +226,23 @@ const PricingSection = () => {
           
           <div className="space-y-6">
             <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
-              <h4 className="text-white font-medium mb-2">Can I change my plan later?</h4>
-              <p className="text-slate-300 text-sm">Yes, you can upgrade, downgrade, or cancel your plan at any time from your account settings.</p>
+              <h4 className="text-white font-medium mb-2">What's the difference between summaries and personal impact analyses?</h4>
+              <p className="text-slate-300 text-sm">Policy summaries explain what a policy does in clear, simple language. Personal impact analyses show exactly how that policy would affect your specific situation based on your profile details.</p>
             </div>
             
             <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
-              <h4 className="text-white font-medium mb-2">Is there a free trial?</h4>
-              <p className="text-slate-300 text-sm">Yes, all paid plans come with a 14-day free trial. No credit card required for the Free plan.</p>
+              <h4 className="text-white font-medium mb-2">How does the weekly reset work?</h4>
+              <p className="text-slate-300 text-sm">Every week, free users get 2 new personal impact analyses. These reset automatically 7 days after your last reset. You always have access to all policy summaries regardless of tier.</p>
             </div>
             
             <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
-              <h4 className="text-white font-medium mb-2">What happens when I exceed my plan limits?</h4>
-              <p className="text-slate-300 text-sm">We'll notify you when you're approaching your plan limits. You can upgrade at any time to continue accessing additional features.</p>
+              <h4 className="text-white font-medium mb-2">What happens after I use my 2 free personal analyses?</h4>
+              <p className="text-slate-300 text-sm">You'll still have access to all policy summaries and your previous personalized analyses, but you'll need to wait for the weekly reset or upgrade to premium for unlimited personalization.</p>
             </div>
             
             <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
               <h4 className="text-white font-medium mb-2">Can I get a custom plan for my organization?</h4>
-              <p className="text-slate-300 text-sm">Absolutely! Contact our sales team for custom pricing and features tailored to your organization's specific needs.</p>
+              <p className="text-slate-300 text-sm">Absolutely! Our Enterprise plan can be customized to your organization's specific needs. Contact our sales team for tailored pricing and features.</p>
             </div>
           </div>
         </div>

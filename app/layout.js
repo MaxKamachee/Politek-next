@@ -1,4 +1,5 @@
 import './globals.css'
+import Providers from './providers.js'
 
 export const metadata = {
   title: 'Politek - Politics that actually matters to you',
@@ -8,7 +9,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-900 text-white font-sans">{children}</body>
+      <body className="min-h-screen bg-slate-900 text-white font-sans">
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
